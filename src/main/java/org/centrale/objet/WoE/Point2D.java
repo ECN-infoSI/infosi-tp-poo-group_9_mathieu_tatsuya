@@ -54,6 +54,7 @@ public class Point2D {
     public void translate(int dx, int dy) {
         this.X += dx;
         this.Y += dy;
+        
     }
 
     public boolean equals(Point2D pt) {

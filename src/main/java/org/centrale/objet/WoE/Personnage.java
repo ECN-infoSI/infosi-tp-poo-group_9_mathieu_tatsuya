@@ -103,11 +103,33 @@ public class Personnage {
         Random x = new Random();
         Random y = new Random();
         
-        int dx = x.nextInt(3)-1;
-        int dy = y.nextInt(3)-1;
+        int dx;
+        int dy;
         
-        this.pos.translate(dx, dy);
+        World world = new World();
+        boolean outside;
+        
+        do {
+    
+            outside = false;
+        
+            dx = x.nextInt(3) - 1;
+            dy = y.nextInt(3) - 1;
+
+
+            int newX = this.pos.getX() + dx;
+            int newY = this.pos.getY() + dy;
+
+
+            if (newX >= world.getNum() || newY >= world.getNum() || newX < 0 || newY < 0) {
+                outside = true; 
+            } 
+            else {
+            this.pos.translate(dx, dy);
+            }
+        }while (!outside); 
     }
+    
     public void affiche(){
         System.out.println(this.nom + ',' + this.ptVie + ',' + this.degAtt + ','
                 + this.ptPar + ',' + this.pageAtt + ',' + this.pagePar + ',' +
@@ -116,3 +138,4 @@ public class Personnage {
     }
     
 }
+

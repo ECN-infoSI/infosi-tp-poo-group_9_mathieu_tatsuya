@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class World {
     
+    private int Num;
     private Archer robin;
     private Paysan peon;
     private Lapin bugs1;
@@ -12,6 +13,8 @@ public class World {
     
     
     public void creerMondeAlea(){
+        
+        setNum(10);
         
         Random x = new Random();
         Random y = new Random();
@@ -22,8 +25,8 @@ public class World {
         while (position.size() < 4){
             
             do{
-                pt.setX(x.nextInt(10));
-                pt.setY(y.nextInt(10));
+                pt.setX(x.nextInt(getNum()));
+                pt.setY(y.nextInt(getNum()));
                 different = true;
             
                 for (Point2D xy : position){
@@ -51,10 +54,10 @@ public class World {
     
     public void afficheMonde(){
         
-        String[][] carte = new String[10][10];
+        String[][] carte = new String[getNum()][getNum()];
         
-        for (int i =0; i<10;i++){
-            for (int j = 0; j<10;j++){
+        for (int i =0; i<getNum();i++){
+            for (int j = 0; j<getNum();j++){
                 carte[i][j] = "-";
             }
         }
@@ -72,14 +75,22 @@ public class World {
         int L2y = this.bugs2.getPos().getY();
         carte[L2x][L2y] = "L2";
         
-        for (int i =0; i<10;i++){
-            for (int j = 0; j<10;j++){
+        for (int i =0; i<getNum();i++){
+            for (int j = 0; j<getNum();j++){
                 System.out.print(carte[i][j]);
             }
             System.out.println("");
         }
         System.out.println("");
         
+    }
+
+    public int getNum() {
+        return Num;
+    }
+
+    public void setNum(int Num) {
+        this.Num = Num;
     }
 
     public Archer getRobin() {
@@ -113,4 +124,5 @@ public class World {
     public void setBugs2(Lapin bugs2) {
         this.bugs2 = bugs2;
     }
+    
 }
