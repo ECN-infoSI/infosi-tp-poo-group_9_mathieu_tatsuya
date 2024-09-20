@@ -76,8 +76,41 @@ public class World {
             for (int j = 0; j<10;j++){
                 System.out.print(carte[i][j]);
             }
-            System.out.println("\n");
+            System.out.println("");
         }
+        System.out.println("");
         
+    }
+
+    public Archer getRobin() {
+        return robin;
+    }
+
+    public void setRobin(Archer robin) {
+        this.robin = robin;
+    }
+
+    public Paysan getPeon() {
+        return peon;
+    }
+
+    public void setPeon(Paysan peon) {
+        this.peon = peon;
+    }
+
+    public Lapin getBugs1() {
+        return bugs1;
+    }
+
+    public void setBugs1(Lapin bugs1) {
+        this.bugs1 = bugs1;
+    }
+
+    public Lapin getBugs2() {
+        return bugs2;
+    }
+
+    public void setBugs2(Lapin bugs2) {
+        this.bugs2 = bugs2;
     }
 }

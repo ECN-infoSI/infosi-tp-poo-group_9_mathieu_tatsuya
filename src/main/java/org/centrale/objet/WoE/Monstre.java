@@ -1,5 +1,7 @@
 package org.centrale.objet.WoE;
 
+import java.util.Random;
+
 public class Monstre {
     
     // Attributs
@@ -87,7 +89,14 @@ public class Monstre {
         this.ptVie = x;
     }
     public void deplace(){
+             
+        Random x = new Random();
+        Random y = new Random();
         
+        int dx = x.nextInt(3)-1;
+        int dy = y.nextInt(3)-1;
+        
+        this.pos.translate(dx, dy);
     }
     public void affiche(){
         System.out.println(this.ptVie + ',' + this.degAtt + ','
