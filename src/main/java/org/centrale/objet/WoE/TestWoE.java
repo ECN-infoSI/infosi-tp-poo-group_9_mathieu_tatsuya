@@ -5,5 +5,6 @@ public class TestWoE {
         World test = new World();
         test.creerMondeAlea();
         test.afficheMonde();
+        
     }
 }

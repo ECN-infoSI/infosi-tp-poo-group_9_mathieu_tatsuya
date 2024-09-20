@@ -21,20 +21,21 @@ public class World {
         
         while (position.size() < 4){
             
-            pt.setX(x.nextInt(10));
-            pt.setY(y.nextInt(10));
-            different = true;
+            do{
+                pt.setX(x.nextInt(10));
+                pt.setY(y.nextInt(10));
+                different = true;
             
-            for (Point2D xy : position){
-                if (pt.equals(xy)){
-                    different = false;
-                }
-            }
+                for (Point2D xy : position){
+                    if (pt.equals(xy)){
+                        different = false;
+                        break;
+                    }
+             }
+            }while(!different);
             
-            if (different) {
-                Point2D copie = new Point2D(pt);
-                position.add(copie);
-            }
+            Point2D copie = new Point2D(pt);
+            position.add(copie);
         }
         this.robin = new Archer("robin",x.nextInt(100),x.nextInt(100),x.nextInt(100),
                 x.nextInt(100),x.nextInt(100),x.nextInt(100),position.get(0),x.nextInt(100));
@@ -44,6 +45,7 @@ public class World {
                 x.nextInt(100),x.nextInt(100),x.nextInt(100),position.get(2));
         this.bugs2 = new Lapin(x.nextInt(100),x.nextInt(100),x.nextInt(100),
                 x.nextInt(100),x.nextInt(100),x.nextInt(100),position.get(3));
+        
     }
     
     

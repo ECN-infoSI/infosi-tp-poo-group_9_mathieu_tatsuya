@@ -1,4 +1,5 @@
 package org.centrale.objet.WoE;
+import java.util.Random;
 
 public class Personnage {
     
@@ -98,7 +99,14 @@ public class Personnage {
         this.nom = n;
     }
     public void deplace(){
+             
+        Random x = new Random();
+        Random y = new Random();
         
+        int dx = x.nextInt(3)-1;
+        int dy = y.nextInt(3)-1;
+        
+        this.pos.translate(dx, dy);
     }
     public void affiche(){
         System.out.println(this.nom + ',' + this.ptVie + ',' + this.degAtt + ','
@@ -106,4 +114,5 @@ public class Personnage {
                 this.distAttMax + ',');
         this.pos.affiche();
     }
+    
 }
